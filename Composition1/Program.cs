@@ -26,7 +26,7 @@ namespace Composition1
             Console.Write("How many contracts to this worker?");
             int totalContracts = int.Parse(Console.ReadLine());
 
-            Worker worker = new Worker(name,level,baseSalary,department);
+            Worker worker = new Worker(name, level, baseSalary, department);
             for (int i = 0; i < totalContracts; i++)
             {
                 Console.WriteLine("Enter #" + (i + 1) + " contract data:");
@@ -36,10 +36,11 @@ namespace Composition1
                 double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 Console.Write("Duration (hours) : ");
                 int duration = int.Parse(Console.ReadLine());
-
-
+                worker.AddContract(new Entities.Enums.HourContract(date, valuePerHour, duration));
 
             }
+            Console.WriteLine("Enter month and year to calculate Income");
+
         }
     }
 }
