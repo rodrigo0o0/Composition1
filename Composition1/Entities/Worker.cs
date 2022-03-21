@@ -54,5 +54,6 @@ namespace Composition1.Entities
             return income;
         }
 
+
     }
 }

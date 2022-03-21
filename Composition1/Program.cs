@@ -12,7 +12,7 @@ namespace Composition1
     {
         static void Main(string[] args)
         {
-
+            
             Console.Write("Enter department's name: ");
             string depName = Console.ReadLine();
             Department department = new Department { Name = depName };
@@ -39,8 +39,15 @@ namespace Composition1
                 worker.AddContract(new Entities.Enums.HourContract(date, valuePerHour, duration));
 
             }
-            Console.WriteLine("Enter month and year to calculate Income");
+            Console.Write("Enter month and year to calculate Income (MM/YYYY) : ");
+            DateTime dateIncome = DateTime.Parse(Console.ReadLine());
 
+            Console.WriteLine("Name : "+worker.Name);
+            Console.WriteLine("Department : " + worker.department.Name);
+            Console.WriteLine($"Income for {dateIncome.Month}/{dateIncome.Year} : {worker.Income(dateIncome.Year,dateIncome.Month).ToString("F2",CultureInfo.InvariantCulture)} ");
+
+
+            Console.ReadKey();
         }
     }
 }
